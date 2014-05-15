@@ -1,5 +1,5 @@
 
-AR.acvs.max.lag.p <- function (ar, sigma2=1) {
+AR.acvs.to.lag.p <- function (ar, sigma2=1) {
   ## ======================================================================
   ## Calculate lags 0 to p of the autocovariance sequence (ACVS) of an
   ## autoregressive, AR(p) process with coefficients 'ar' (of length
@@ -28,7 +28,7 @@ AR.acvs.max.lag.p <- function (ar, sigma2=1) {
 
 
 
-AR.acvs <- function (lag.max, ar, sigma2=1) {
+AR.acvs.to.lag <- function (lag.max, ar, sigma2=1) {
   ## ======================================================================
   ## Calculate lags 0 to lag.max of the autocovariance sequence (ACVS) of an
   ## AR(p) process with coefficients 'ar', and innovation variance sigma2.
@@ -37,7 +37,7 @@ AR.acvs <- function (lag.max, ar, sigma2=1) {
   ## pfc@stat.osu.edu
   ## ======================================================================
 
-  acvs.p <- AR.acvs.max.lag.p(ar, sigma2)
+  acvs.p <- AR.acvs.to.lag.p(ar, sigma2)
   ARMAacf(ar, lag.max=lag.max) * acvs.p[1]
 }
 
